@@ -1,41 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <style>
-.boton {
-            background-color: #008B8B; /* Verde */
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none; /* Quitar subrayado */
-            display: inline-block;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            
-            /* Alineación en la esquina superior izquierda */
-            position: absolute;
-            top: 10px;   /* Distancia desde el borde superior */
-            left: 10px;  /* Distancia desde el borde izquierdo */
-        }
-
-        /* Estilo cuando el cursor pasa por encima (hover) */
-        .boton:hover {
-            background-color: #45a049; /* Verde más oscuro */
-        }
-    </style>
-</head>
-<body>
-
-    <!-- El enlace con un botón estilizado -->
-    <a href="index.html" class="boton">INICIO</a>
-
- <title>Contacto | Consultorio de Curación de Heridas</title>
   <style>
-    /* styles.css */
+    /* Estilos generales */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -127,9 +96,80 @@
       bottom: 0;
       width: 100%;
     }
+
+    /* Media Queries para hacerlo responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 0;
+      }
+
+      #contact-form {
+        margin: 15px;
+        padding: 15px;
+      }
+
+      button {
+        padding: 12px 18px;
+      }
+
+      #call-button {
+        padding: 10px 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 10px 0;
+      }
+
+      #contact-form {
+        margin: 10px;
+        padding: 10px;
+      }
+
+      button {
+        padding: 10px 16px;
+      }
+
+      #call-button {
+        padding: 8px 16px;
+      }
+
+      #map iframe {
+        width: 100%;
+        height: 300px;
+      }
+    }
+
+    /* Estilos para el botón de navegación */
+    .boton {
+      background-color: #008B8B; /* Verde */
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none; /* Quitar subrayado */
+      display: inline-block;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      /* Alineación en la esquina superior izquierda */
+      position: absolute;
+      top: 10px;   /* Distancia desde el borde superior */
+      left: 10px;  /* Distancia desde el borde izquierdo */
+    }
+
+    /* Estilo cuando el cursor pasa por encima (hover) */
+    .boton:hover {
+      background-color: #45a049; /* Verde más oscuro */
+    }
   </style>
 </head>
 <body>
+
+  <!-- El enlace con un botón estilizado -->
+  <a href="index.html" class="boton">INICIO</a>
+
   <header>
     <h1>Contacto</h1>
   </header>
@@ -154,13 +194,13 @@
 
     <div id="call-us">
       <p>¿Prefieres llamarnos? Haz clic en el siguiente botón:</p>
-      <a href="7716914235" id="call-button">Llamar ahora</a> <!-- Cambia el número aquí -->
+      <a href="tel:+7716914235" id="call-button">Llamar ahora</a> <!-- Cambia el número aquí -->
     </div>
   </section>
 
   <section id="location">
     <h2>Ubicación</h2>
-    <p>Dirección: Calle  123, Ciudad, País</p>
+    <p>Dirección: Calle 123, Ciudad, País</p>
     <div id="map">
       <!-- Aquí puedes integrar Google Maps si lo deseas -->
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799233909!2d-74.2598670731103!3d40.69767006357861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa06e5f007f%3A0x91d4a1c9a1d98ab6!2sNew%20York%2C%20NY!5e0!3m2!1ses-419!2smx!4v1615372326273!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -171,5 +211,6 @@
   <footer>
     <p>&copy; 2025 Consultorio de Curación de Heridas. Todos los derechos reservados.</p>
   </footer>
+
 </body>
 </html>
