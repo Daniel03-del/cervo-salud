@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicamentos</title>
-<style>
-.boton {
+    <style>
+        .boton {
             background-color: #008B8B; /* Verde */
             color: white;
             padding: 15px 32px;
@@ -27,16 +27,7 @@
         .boton:hover {
             background-color: #45a049; /* Verde más oscuro */
         }
-    </style>
-</head>
-<body>
 
-    <!-- El enlace con un botón estilizado -->
-    <a href="index.html" class="boton">INICIO</a>
-
-
-
-    <style>
         body { font-family: Arial, sans-serif; background-color: #008B8B; }
         .category { margin-bottom: 20px; }
         .category h3 { color: white; }
@@ -62,176 +53,53 @@
         .modal-content { margin: 10% auto; width: 30%; text-align: center; }
         .modal-content input { width: 90%; padding: 10px; margin-bottom: 10px; }
         #searchBar { width: 50%; padding: 8px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+
+        /* Media queries para diseño responsivo */
+        @media (max-width: 768px) {
+            .boton {
+                font-size: 14px;
+                padding: 12px 28px;
+            }
+            
+            .products-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            #searchBar {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .boton {
+                font-size: 12px;
+                padding: 10px 24px;
+            }
+
+            .product {
+                width: 90%;
+            }
+
+            .modal-content {
+                width: 80%;
+            }
+
+            #searchBar {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- El enlace con un botón estilizado -->
+    <a href="index.html" class="boton">INICIO</a>
+
     <center><h2>Medicamentos</h2></center>
-    <input type="text" id="searchBar" placeholder="Buscar medicamento o insumo..." onkeyup="searchProduct()">
-    <div id="product-sections"></div>
-    <h3>Carrito de Compras</h3>
-    <div id="cart"></div>
-    <button onclick="openPaymentOptions()">Pagar</button>
-    
-    <div id="paymentOptionsModal" class="modal">
-        <div class="modal-content">
-            <h3>Selecciona el método de pago</h3>
-            <button onclick="openPaymentModal('tarjeta')">Tarjeta</button>
-            <button onclick="payWithCash()">Efectivo</button>
-        </div>
-    </div>
-
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <h3>Datos de Pago</h3>
-            <input type="text" id="cardName" placeholder="Nombre del titular">
-            <input type="text" id="cardNumber" placeholder="Número de tarjeta">
-            <input type="text" id="expiryDate" placeholder="Fecha de vencimiento">
-            <input type="text" id="cvv" placeholder="CVV">
-            <input type="text" id="address" placeholder="Dirección de envío">
-            <button onclick="processPayment()">Confirmar Pago</button>
-            <p id="error-message" style="color: red; display: none;">Por favor, complete todos los campos correctamente.</p>
-        </div>
-    </div>
-
-    <script>
-        let cart = [];
-        let categories = {
-            "Analgésicos": [
-                { name: "Paracetamol", price: 10 },
-                { name: "Ibuprofeno", price: 15 },
-                { name: "Ketorolaco", price: 20 }
-            ],
-            "Antibióticos": [
-                { name: "Amoxicilina", price: 30 },
-                { name: "Azitromicina", price: 25 }
-            ],
-            "Otros": [
-                { name: "Metformina", price: 40 },
-                { name: "Salbutamol", price: 18 }
-            ]
-        };
-
-        function loadProducts() {
-            let container = document.getElementById("product-sections");
-            container.innerHTML = "";
-            for (let category in categories) {
-                let section = document.createElement("div");
-                section.className = "category";
-                section.innerHTML = `<h3>${category}</h3><div class='products-container' id='${category}'></div>`;
-                container.appendChild(section);
-                let productContainer = document.getElementById(category);
-                categories[category].forEach(product => {
-                    let productDiv = document.createElement("div");
-                    productDiv.className = "product";
-                    productDiv.setAttribute("data-name", product.name.toLowerCase());
-                    productDiv.innerHTML = `<p><strong>${product.name}</strong></p>
-                        <p>Precio: $${product.price}</p>
-                        <button onclick='addToCart("${product.name}", ${product.price})'>Agregar</button>`;
-                    productContainer.appendChild(productDiv);
-                });
-            }
-        }
-
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            displayCart();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            displayCart();
-        }
-
-        function displayCart() {
-            let cartContainer = document.getElementById("cart");
-            cartContainer.innerHTML = "";
-            let total = 0;
-            cart.forEach((item, index) => {
-                cartContainer.innerHTML += `<p>${item.name} - $${item.price} <button onclick='removeFromCart(${index})'>Quitar</button></p>`;
-                total += item.price;
-            });
-            cartContainer.innerHTML += `<p><strong>Total: $${total}</strong></p>`;
-        }
-
-        function searchProduct() {
-            let input = document.getElementById("searchBar").value.toLowerCase();
-            let products = document.querySelectorAll(".product");
-            products.forEach(product => {
-                let name = product.getAttribute("data-name");
-                product.style.display = name.includes(input) ? "block" : "none";
-            });
-        }
-
-        function openPaymentOptions() {
-            document.getElementById("paymentOptionsModal").style.display = "block";
-        }
-
-        function openPaymentModal(paymentMethod) {
-            document.getElementById("paymentOptionsModal").style.display = "none";
-            document.getElementById("paymentModal").style.display = "block";
-        }
-
-        function payWithCash() {
-            alert("realice su pago en cuanto le hagan su entrega.");
-            document.getElementById("paymentOptionsModal").style.display = "none";
-            cart = [];
-            displayCart();
-        }
-
-        function validateForm() {
-            let cardName = document.getElementById("cardName").value;
-            let cardNumber = document.getElementById("cardNumber").value;
-            let expiryDate = document.getElementById("expiryDate").value;
-            let cvv = document.getElementById("cvv").value;
-            let address = document.getElementById("address").value;
-            let errorMessage = document.getElementById("error-message");
-
-            // Validación de nombre del titular (solo letras)
-            let namePattern = /^[a-zA-Z\s]+$/;
-            if (!namePattern.test(cardName)) {
-                errorMessage.innerText = "El nombre del titular debe contener solo letras.";
-                errorMessage.style.display = "block";
-                return false;
-            }
-
-            // Validación del número de tarjeta (solo números)
-            let cardPattern = /^\d{16}$/;
-            if (!cardPattern.test(cardNumber)) {
-                errorMessage.innerText = "El número de tarjeta debe ser de 16 dígitos.";
-                errorMessage.style.display = "block";
-                return false;
-            }
-
-            // Validación del CVV (solo números)
-            let cvvPattern = /^\d{3}$/;
-            if (!cvvPattern.test(cvv)) {
-                errorMessage.innerText = "El CVV debe ser un código de 3 dígitos.";
-                errorMessage.style.display = "block";
-                return false;
-            }
-
-            // Validación de la dirección (puede contener letras y números)
-            if (address === "") {
-                errorMessage.innerText = "La dirección de envío no puede estar vacía.";
-                errorMessage.style.display = "block";
-                return false;
-            }
-
-            // Si pasa todas las validaciones, ocultamos el mensaje de error y procesamos el pago
-            errorMessage.style.display = "none";
-            return true;
-        }
-
-        function processPayment() {
-            if (validateForm()) {
-                alert("Pago realizado con éxito. Su envío será entregado en un lapso de 3 a 4 hrs.");
-                document.getElementById("paymentModal").style.display = "none";
-                cart = [];
-                displayCart();
-            }
-        }
-
-        loadProducts();
-    </script>
-</body>
-</html>
+    <input type="text" id="searchBar" placeholder="Buscar medicamento o insumo..
