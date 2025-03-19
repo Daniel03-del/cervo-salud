@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+.boton {
+            background-color: #008B8B; /* Verde */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none; /* Quitar subrayado */
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            
+            /* Alineación en la esquina superior izquierda */
+            position: absolute;
+            top: 10px;   /* Distancia desde el borde superior */
+            left: 10px;  /* Distancia desde el borde izquierdo */
+        }
+
+        /* Estilo cuando el cursor pasa por encima (hover) */
+        .boton:hover {
+            background-color: #45a049; /* Verde más oscuro */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- El enlace con un botón estilizado -->
+    <a href="index.html" class="boton">INICIO</a>
+
+<title>Reservas Consultorio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #008B8B;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #008B8B;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #006666;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #008B8B;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Reserva tu Cita para Curación de Heridas</h1>
+        <p>Selecciona tu servicio y elige tu fecha y hora.</p>
+    </header>
+
+    <div class="container">
+        <form id="reservation-form">
+            <h2>Formulario de Reservación</h2>
+
+            <label for="name">Nombre Completo:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="service">Tipo de Servicio:</label>
+            <select id="service" name="service" required>
+                <option value="consulta">Consulta General</option>
+                <option value="curacion">Curación de Heridas</option>
+                <option value="seguimiento">Seguimiento de Heridas</option>
+            </select>
+
+            <label for="date">Fecha de la Cita:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Hora de la Cita:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Reservar Cita</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Consultorio de Curación de Heridas | Todos los derechos reservados</p>
+    </div>
+
+    <script>
+        document.getElementById('reservation-form').addEventListener('submit', function(event) {
+            event.preventDefault();  // Evita que se recargue la página
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            alert(`Cita reservada con éxito!\n\nNombre: ${name}\nCorreo: ${email}\nServicio: ${service}\nFecha: ${date}\nHora: ${time}`);
+        });
+    </script>
+
+</body>
+</html>

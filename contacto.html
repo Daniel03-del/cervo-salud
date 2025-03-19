@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style>
+.boton {
+            background-color: #008B8B; /* Verde */
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none; /* Quitar subrayado */
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            
+            /* Alineación en la esquina superior izquierda */
+            position: absolute;
+            top: 10px;   /* Distancia desde el borde superior */
+            left: 10px;  /* Distancia desde el borde izquierdo */
+        }
+
+        /* Estilo cuando el cursor pasa por encima (hover) */
+        .boton:hover {
+            background-color: #45a049; /* Verde más oscuro */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- El enlace con un botón estilizado -->
+    <a href="index.html" class="boton">INICIO</a>
+
+ <title>Contacto | Consultorio de Curación de Heridas</title>
+  <style>
+    /* styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #008B8B;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    #contact-form {
+      margin: 20px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #4CAF50;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #call-us {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #call-button {
+      display: inline-block;
+      background-color: #008CBA;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #call-button:hover {
+      background-color: #006f8e;
+    }
+
+    #location {
+      margin: 20px;
+    }
+
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contacto</h1>
+  </header>
+
+  <section id="contact-form">
+    <h2>Contáctanos</h2>
+    <form action="#" method="post">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Teléfono (opcional):</label>
+      <input type="tel" id="phone" name="phone">
+
+      <label for="message">Mensaje:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <div id="call-us">
+      <p>¿Prefieres llamarnos? Haz clic en el siguiente botón:</p>
+      <a href="7716914235" id="call-button">Llamar ahora</a> <!-- Cambia el número aquí -->
+    </div>
+  </section>
+
+  <section id="location">
+    <h2>Ubicación</h2>
+    <p>Dirección: Calle  123, Ciudad, País</p>
+    <div id="map">
+      <!-- Aquí puedes integrar Google Maps si lo deseas -->
+      <iframe src="https://maps.app.goo.gl/KKKUBGmRY314PCU7A" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <p>Horario de atención: Lunes a Viernes de 9:00 AM a 6:00 PM.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Consultorio de Curación de Heridas. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
